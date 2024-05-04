@@ -1,0 +1,68 @@
+@import "./App.scss";
+
+.home-page-header {
+    color: white;
+    background: #503fff;
+    background: -webkit-linear-gradient(rgba(80, 63, 255, 0.95), rgb(77, 152, 205, 0.8)), url("https://www.lehmanengineers.com/wp-content/uploads/2015/12/header_map_survey.jpg");
+    background: linear-gradient(rgba(13, 36, 97, 0.95), rgba(18, 51, 143, 0.8)), url("https://leica-geosystems.com/-/media/images/leicageosystems/products/construction-total-stations-and-gnss/leica-icon/ict%2030/leica_ict30_tool_and_prism.ashx?h=428&w=800&la=en&hash=094F27BB661E36EA6572C1C283D03F9F");
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include rfs(175px, padding-bottom);
+}
+
+.mini-services-container {
+    box-shadow: 0px 0px 1rem 0px rgba(0, 0, 0, 0.5);
+    background-color: #FFFFFF;
+    height: 400px;
+}
+
+.home-header-left-section {
+    text-align: center;
+}
+
+.mini-service-card-link {
+    text-decoration: none;
+}
+
+.mini-service-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    font-size: 1.125rem;
+    overflow: hidden;
+    background-color: white;
+    color: #555555;
+    border-radius: 1rem;
+    box-shadow: 0 2px 24px -4px rgba(0, 0, 0, 0.45);
+    transition: box-shadow 0.5s ease, background-color 0.5s ease;
+    position: relative;
+    padding: 0px 1rem;
+    height: 125px;
+
+    &:hover {
+        box-shadow: 0 2px 40px 0px rgba(0, 0, 0, 1);
+        background-color: rgb(211, 211, 211);
+
+    }
+
+    .mini-service-card-heading {
+        padding: 0.5rem 0.5rem 0 0.5rem;
+        font-weight: 600;
+        text-align: center;
+        @include rfs(1.125rem, font-size);
+    }
+
+    .mini-service-card-icon {
+        height: 40px;
+        width: 40px;
+        object-fit: contain;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .home-header-left-section {
+        text-align: left;
+    }
+}

@@ -1,0 +1,85 @@
+@import "./App.scss";
+
+.about-page-header {
+
+    background: #23272a;
+    color: white;
+    background: linear-gradient(rgb(68, 71, 89), rgba(70, 73, 86, 0.55)), url("../../public/BostonSkylineNight.png");
+    background-repeat: no-repeat;
+    background-position: 30%;
+    background-size: cover;
+    @include rfs(200px, padding-bottom);
+}
+
+.bottom-section {
+    @include rfs(240px, padding-bottom);
+
+}
+
+.staff-cards-container {
+    @include rfs(140px, padding-top);
+}
+
+figure.staff-card-figure {
+
+    width: 100%;
+
+    figcaption.staff-card-caption {
+        //   max-width: 100%;
+        text-align: center;
+
+        span {
+            display: block;
+        }
+    }
+
+    .flip-card {
+        background-color: transparent;
+
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        perspective: 1000px;
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.5s;
+            transform-style: preserve-3d;
+
+            .flip-card-front,
+            .flip-card-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                /* Safari */
+                backface-visibility: hidden;
+            }
+
+            .flip-card-front {
+                background-color: #bbb;
+
+                img {
+                    filter: grayscale(100%);
+                }
+            }
+
+            .flip-card-back {
+                background-color: #8b8b8b;
+                transform: rotateY(180deg);
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                //  object-fit: cover;
+            }
+        }
+
+        &:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+    }
+}

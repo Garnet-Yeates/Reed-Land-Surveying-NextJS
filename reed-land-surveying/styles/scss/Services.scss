@@ -1,0 +1,161 @@
+@import "./App.scss";
+
+.services-page-header {
+
+    background: linear-gradient(145deg, rgba(238, 238, 238, 1) 0%, rgba(238, 238, 238, 0.5) 100%), url("../../public/RolledBlueprints.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include rfs(200px, padding-bottom);
+}
+
+.service-card-container {
+  //  margin: 0.5rem;
+
+    .service-card {
+        user-select: none;
+        font-size: 1.125rem;
+        overflow: hidden;
+        background-color: white;
+        color: #555555;
+        box-shadow: 0 1px 15px -4px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 1s;
+        position: relative;
+        padding: 0px 1.25rem;
+        height: 250px;
+
+
+        .service-card-heading {
+            padding: 0.5rem;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1.125rem;
+        }
+
+        .service-card-icon-container {
+
+            transition: 0.75s ease;
+            transform: translateY(0px);
+            text-align: center;
+
+            .service-card-icon {
+                height: 40px;
+                width: 40px;
+                object-fit: contain;
+            }
+
+        }
+
+        .service-card-info {
+            transition: 0.75s ease;
+            transform: translateY(125px);
+            text-align: center;
+            font-size: 1.125rem;
+        }
+
+        .service-card-slider {
+            transition: 0.65s ease;
+            position: relative;
+            top: -40px;
+            width: 100%;
+            transform: translateY(125px);
+        }
+
+        &.detailed {
+            box-shadow: 0 12px 50px -15px rgba(0, 0, 0, 0.5);
+
+            .service-card-slider {
+                transform: translateY(0px);
+            }
+
+            .service-card-icon-container {
+                transform: translateY(-125px);
+            }
+
+            .service-card-info {
+                transform: translateY(0px)
+            }
+        }
+    }
+}
+
+.procedure-card-container {
+    width: 100%;
+    background-color: white;
+    --procedure-card-padding: 1.5rem;
+
+    .procedure-card {
+        user-select: none;
+        padding: var(--procedure-card-padding);
+        box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 30%);
+
+        .procedure-info {
+            @include rfs(1.25rem, font-size);
+            font-weight: 400;
+            
+        }
+
+        .procedure-card-number {
+            font-weight: 500;
+            margin-right: 0.75rem;
+        }
+
+        .procedure-special-text {
+            cursor: pointer;
+            @include rfs(1.25rem, font-size);
+            font-weight: 500;
+            margin-top: 1rem;
+            color: #3c87f8;
+        }
+    }
+
+    &.flippable {
+        background-color: transparent;
+        perspective: 5000px;
+        padding: 0px;
+
+        .procedure-card {
+            background-color: white;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.75s;
+            transform-style: preserve-3d;
+
+            .procedure-card-front,
+            .procedure-card-back {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                bottom: 0px;
+                right: 0px;
+                padding: var(--procedure-card-padding);
+                -webkit-backface-visibility: hidden;
+                /* Safari */
+                backface-visibility: hidden;
+            }
+
+
+            .procedure-card-size-controller {
+                position: relative;
+                width: auto;
+                padding: 0px;
+                height: auto;
+            }
+
+            .procedure-card-front {
+                background-color: rgb(255, 255, 255);
+            }
+
+            .procedure-card-back {
+                background-color: rgb(255, 255, 255);
+                transform: rotateX(180deg);
+            }
+
+        }
+
+        &.flipped .procedure-card {
+            transform: rotateX(180deg);
+        }
+    }
+}
+
